@@ -1,0 +1,73 @@
+<div class="container">
+  <ion-row>
+    <ion-col size="11" class="title">
+      <h3>Ajouter Médecin</h3>
+    </ion-col>
+    <ion-col>
+      <ion-icon class="return" color="primary" (click)="modalDismiss()"
+      name="arrow-forward-circle-outline"></ion-icon>
+    </ion-col>
+  </ion-row> 
+  <div class="submit-form">
+
+    <div *ngIf="!submitted">
+
+      <div class="form-group">
+        <label for="description">Nom & prenom</label>
+        <input
+          class="form-control"
+          id="description"
+          required
+          [(ngModel)]="doctor.name"
+          name="name"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="tel">Adresse</label>
+        <input
+          class="form-control"
+          id="adress"
+          [(ngModel)]="doctor.adress"       
+          required
+          type="text"
+          name="adress"
+        />
+      </div>
+      <div class="form-group">
+        <label for="mail">Email</label>
+        <input
+          class="form-control"
+          id="mail"
+          [(ngModel)]="doctor.email"
+          required
+          type="email"
+          name="mail"
+        />
+      </div>
+      <div class="form-group">
+        <label for="tel">Tél</label>
+        <input
+          class="form-control"
+          id="tel"
+          required
+          [(ngModel)]="doctor.tel"
+          type="tel"
+          name="tel"
+        />
+      </div>
+      <ion-button mode="ios" color="blue" (click)="saveDoctor()" class="btn btn-success">Submit</ion-button>
+    </div>
+
+
+
+
+    <div *ngIf="submitted">
+      <h4>Médecin ajoutée avec succés!</h4>
+      <ion-button mode="ios" class="btn btn-success" (click)="newDoctor()">Add</ion-button>
+    </div>
+
+
+
+  </div>
+</div>

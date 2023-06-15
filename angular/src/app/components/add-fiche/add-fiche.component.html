@@ -1,0 +1,743 @@
+<!---
+
+<ion-content>
+  <div [scrollTop]="true">
+
+      <ion-row  class="container" >
+        <ion-col size="11" class="title">
+          <h3>Ajouter Fiche</h3>
+        </ion-col>
+        <ion-col>
+          <ion-icon class="return" color="primary" (click)="modalDismiss()"
+          name="arrow-forward-circle-outline" ></ion-icon>
+        </ion-col>
+      </ion-row> 
+
+
+      <ion-segment  (ionChange)="segmentChanged($event)" value="less">
+          <ion-segment-button value="less">
+            <ion-label>less</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="more">
+            <ion-label>more</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+        
+        <div [ngSwitch]='segment'>
+          <ion-row *ngSwitchCase="'less'">
+           
+           <ion-row>
+              <div class="submit-form">
+                <div *ngIf="!submitted">
+                <ion-row size="12">
+
+                  <div class="form-group">
+                    
+                      <ion-col size="4">
+                    
+                      <input
+                        size="10"
+                        class="form-control"
+                        type="text"
+                        id="numDoc"
+                        placeholder="N°dossier"
+                        required
+                        [(ngModel)]="fiche.numDoc"
+                        name="numDoc"
+                      />
+
+                     
+                  
+                        
+                    </ion-col>
+                    <ion-col>
+                      <input
+                      size="10"
+                      class="form-control"
+                      id="nom"
+                      placeholder="nom"
+                      required
+                      [(ngModel)]="fiche.nom"
+                      name="nom"
+                    />
+                    </ion-col>
+                  </div>
+
+      
+                   
+                      
+                         <ion-col  size="4">
+                
+                      
+                            <div >
+                              <label for ="dateDiag">date de diagnostic : </label>
+                                
+                                <input type="date"  [(ngModel)]="fiche.dateDiag" name="dateDiag">
+                             
+                            </div>
+                            </ion-col>
+                            <ion-col size="4">
+                          
+                            <div>
+                              <label for ="dateEnrg">date d'enregistrement: </label>
+                                
+                                <input type="date" [(ngModel)]="fiche.dateEnrg" name="dateEnrg">
+                             
+                            </div>
+
+                </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                  <ion-list>
+                      <ion-item>
+                          <ion-select aria-label="Fruit"  interface="popover" placeholder="Select Organisme">
+                          <ion-select-option value="Hopital">Hopital</ion-select-option>
+                          <ion-select-option value="Clinique">Clinique</ion-select-option>
+                          <ion-select-option value="Cabinet">Cabinet</ion-select-option>
+                          </ion-select>
+                      </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col>
+                      <ion-list>
+                          <ion-item>
+                            <ion-select aria-label="Fruit" [(ngModel)]="fiche.hopital" interface="popover" placeholder="Select nom Organisme">
+                              <ion-select-option value="apples">Apples</ion-select-option>
+                              <ion-select-option value="oranges">Oranges</ion-select-option>
+                              <ion-select-option value="bananas">Bananas</ion-select-option>
+                            </ion-select>
+                          </ion-item>
+                        </ion-list>
+                      </ion-col>
+                      </ion-row>
+                        <ion-row>
+                      <ion-col>
+                        <ion-list>
+                          <ion-item>
+                            <ion-select aria-label="Fruit"  [(ngModel)]="fiche.service" interface="popover" placeholder="Select service">
+                              <ion-select-option value="apples">Apples</ion-select-option>
+                              <ion-select-option value="oranges">Oranges</ion-select-option>
+                              <ion-select-option value="bananas">Bananas</ion-select-option>
+                            </ion-select>
+                          </ion-item>
+                        </ion-list>
+                      </ion-col>
+                        <ion-col>
+                        <ion-list>
+                          <ion-item>
+                            <ion-select aria-label="Fruit"  [(ngModel)]="fiche.doctor" interface="popover" placeholder="Select nom médecin">
+                              <ion-select-option value="apples">Apples</ion-select-option>
+                              <ion-select-option value="oranges">Oranges</ion-select-option>
+                              <ion-select-option value="bananas">Bananas</ion-select-option>
+                            </ion-select>
+                          </ion-item>
+                        </ion-list>
+                      </ion-col>
+                      </ion-row>
+                 
+                </div>
+                </div>
+          </ion-row>
+
+              
+              menu more
+
+          <ion-row *ngSwitchCase="'more'">
+
+
+            <div>
+              <ion-list>
+                  <ion-accordion-group>
+                    <ion-accordion value="start">
+                      <ion-item slot="header">
+                          <ion-label>Identification Patient</ion-label>
+                        <ion-note slot="end" id="datetimeValue"></ion-note>
+                      </ion-item>
+                      <ion-item slot="content">
+                      
+                      <div>
+                        <div class="form-group">
+
+                          <ion-row>
+                            <ion-col>
+                          <input
+                            class="form-control"
+                            id="description"
+                            required
+                            placeholder="Nom et Prénom"
+                      
+                            name="name"
+                          />
+                        </ion-col>
+                        <ion-col>
+                        
+                          <input
+                            class="form-control"
+                            id="adress"
+                            [(ngModel)]="fiche.nom"       
+                            required
+                            placeholder="Adresse"
+                            type="text"
+                            name="adress"
+                          />
+                        </ion-col>
+                        </ion-row>
+                          <ion-row>
+                            <ion-col>
+                          <input
+                            class="form-control"
+                            id="mail"
+                            [(ngModel)]="fiche.dateDiag"
+                            required
+                            placeholder="Email"
+                            type="email"
+                            name="mail"
+                          />
+                        </ion-col>
+                        
+                        <ion-col>
+                          <input
+                            class="form-control"
+                            id="tel"
+                            required
+                            placeholder="Tél"
+                            [(ngModel)]="fiche.dateEnrg"
+                            type="tel"
+                            name="tel"
+                          />
+                        </ion-col>
+                        </ion-row>
+
+                          
+                            <label for ="Pathologies :">Pathologies :</label>
+                            <div>
+                              <input type="checkbox" id="homocystinurie" name="homocystinurie" value="homocystinurie">
+                              <label for="homocystinurie">homocystinurie</label>
+                            </div>
+                            <div>
+                              <input type="checkbox" id="leucinose" name="leucinose" value="leucinose">
+                              <label for="leucinose">leucinose</label>
+                            </div>
+                              <div>
+                              <input type="checkbox" id=" phénylcétonurie" name=" phénylcétonurie" value=" phénylcétonurie">
+                              <label for=" phénylcétonurie"> phénylcétonurie</label>
+                            </div>
+                              <div>
+                              <input type="checkbox" id="tyrosinémie de type 1" name="tyrosinémie de type 1" value="tyrosinémie de type 1">
+                              <label for="tyrosinémie de type 1">tyrosinémie de type 1</label>
+                            </div>
+                            
+                         <ion-row>
+                          <ion-col>
+                          <div>
+                           
+                           <ion-list>
+                      <ion-item>
+                          <ion-select aria-label=" Type de l’observation" interface="popover" placeholder=" Type de l’observation">
+                          <ion-select-option value="Patient">Patient</ion-select-option>
+                          <ion-select-option value="interruption de grossesse">interruption de grossesse</ion-select-option>
+                          
+                          </ion-select>
+                      </ion-item>
+                      </ion-list>
+                          </div>
+                        
+                        </ion-col>
+                        <ion-col>
+                          <div>
+
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Sexe" interface="popover" placeholder=" Sexe">
+                           <ion-select-option value="Homme">Homme</ion-select-option>
+                           <ion-select-option value="Femme">Femme</ion-select-option>
+                           <ion-select-option value="Non déterminé">Non déterminé</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                           </div>
+                          </ion-col>
+                          </ion-row>
+                          
+                             <ion-row>
+                              <ion-col size="4">
+                            <div>
+                              <label for ="date de naissance">date de naissance: </label>
+                                
+                                <input type="date" name="date de naissance">
+                             
+                            </div>
+                          </ion-col>
+                        
+                          <ion-col size="4">
+                          <div>
+                            <label for ="date de l’interruption">date de l’interruption: </label>
+                              
+                              <input type="date" name="date de l’interruptions">
+                           
+                          </div>
+                          </ion-col>
+
+                        <ion-col size="3">
+                         
+                          <div>
+                            <label for="Age"> </label>
+                            
+                          <input
+                            class="Age actuel"
+                            id="Age actuel"
+                            required
+                            placeholder="Age actuel"
+                            name="Age actuel"
+                          />
+                          </div>
+                        </ion-col>
+                        </ion-row>
+                          
+                         
+                           <div>
+                            <ion-row>
+
+                            <ion-col>
+
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Origine géographique du père " interface="popover" placeholder="Origine géographique du père">
+                           <ion-select-option value="Béja">Béja</ion-select-option>
+                           <ion-select-option value="Ben Arous ">Ben Arous </ion-select-option>
+                           <ion-select-option value=" Bizerte "> Bizerte </ion-select-option>
+                           <ion-select-option value="El Kef ">El Kef </ion-select-option>
+                           <ion-select-option value="Gabes ">Gabes </ion-select-option>
+                           <ion-select-option value=" Gafsa "> Gafsa </ion-select-option>
+                           <ion-select-option value="Jendouba ">Jendouba </ion-select-option>
+                           <ion-select-option value=" Kairouan"> Kairouan </ion-select-option>
+                           <ion-select-option value="Kesserine ">Kesserine </ion-select-option>
+                           <ion-select-option value="Kebili ">Kebili </ion-select-option>
+                           <ion-select-option value="Mahdia ">Mahdia </ion-select-option>
+                           <ion-select-option value="Manouba  ">Manouba  </ion-select-option>
+                           <ion-select-option value="Medenine">Medenine </ion-select-option>
+                           <ion-select-option value="Monastir">Monastir </ion-select-option>
+                           <ion-select-option value="Nabeul">Nabeul </ion-select-option>
+                           <ion-select-option value=" Sfax"> Sfax </ion-select-option>
+                           <ion-select-option value=" Sidi Bouzid"> Sidi Bouzid</ion-select-option>
+                           <ion-select-option value=" Siliana"> Siliana </ion-select-option>
+                           <ion-select-option value="Sousse">Sousse </ion-select-option>
+                           <ion-select-option value=" Tataouine"> Tataouine </ion-select-option>
+                           <ion-select-option value="Tozeur"> Tozeur </ion-select-option>
+                           <ion-select-option value=" Tunisr">  Tunis </ion-select-option>
+                           <ion-select-option value=" Zaghouan">  Zaghouan </ion-select-option>
+                           <ion-select-option value="NP">NP</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                            </ion-col>
+
+                           <ion-col >
+                            
+                          <div>
+
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Consanguinité " interface="popover" placeholder="Consanguinité">
+                           <ion-select-option value="Oui">Oui</ion-select-option>
+                           <ion-select-option value="Non">Non</ion-select-option>
+                           <ion-select-option value="NP">NP</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                           </div>
+                           </ion-col>
+                            </ion-row>
+                            </div>
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Origine géographique du mère " interface="popover" placeholder="Origine géographique du mère">
+                           <ion-select-option value="Béja">Béja</ion-select-option>
+                           <ion-select-option value="Ben Arous ">Ben Arous </ion-select-option>
+                           <ion-select-option value=" Bizerte "> Bizerte </ion-select-option>
+                           <ion-select-option value="El Kef ">El Kef </ion-select-option>
+                           <ion-select-option value="Gabes ">Gabes </ion-select-option>
+                           <ion-select-option value=" Gafsa "> Gafsa </ion-select-option>
+                           <ion-select-option value="Jendouba ">Jendouba </ion-select-option>
+                           <ion-select-option value=" Kairouan"> Kairouan </ion-select-option>
+                           <ion-select-option value="Kesserine ">Kesserine </ion-select-option>
+                           <ion-select-option value="Kebili ">Kebili </ion-select-option>
+                           <ion-select-option value="Mahdia ">Mahdia </ion-select-option>
+                           <ion-select-option value="Manouba  ">Manouba  </ion-select-option>
+                           <ion-select-option value="Medenine">Medenine </ion-select-option>
+                           <ion-select-option value="Monastir">Monastir </ion-select-option>
+                           <ion-select-option value="Nabeul">Nabeul </ion-select-option>
+                           <ion-select-option value=" Sfax"> Sfax </ion-select-option>
+                           <ion-select-option value=" Sidi Bouzid"> Sidi Bouzid</ion-select-option>
+                           <ion-select-option value=" Siliana"> Siliana </ion-select-option>
+                           <ion-select-option value="Sousse">Sousse </ion-select-option>
+                           <ion-select-option value=" Tataouine"> Tataouine </ion-select-option>
+                           <ion-select-option value="Tozeur"> Tozeur </ion-select-option>
+                           <ion-select-option value=" Tunisr">  Tunis </ion-select-option>
+                           <ion-select-option value=" Zaghouan">  Zaghouan </ion-select-option>
+                           <ion-select-option value="NP">NP</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                      
+                     
+                         
+
+                           <div>
+                          <ion-row> 
+                            <ion-col>
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Couverture sociale  " interface="popover" placeholder="Couverture sociale ">
+            
+                            <ion-select-option value="aucune">aucune</ion-select-option>
+                           <ion-select-option value="CNAM">CNAM</ion-select-option>
+                           <ion-select-option value="CNRPS">CNRPS</ion-select-option>
+                           <ion-select-option value=" CNSS"> CNSS</ion-select-option>
+                           <ion-select-option value=" tarif réduit"> tarif réduit</ion-select-option>
+                           <ion-select-option value=" indigent"> indigent</ion-select-option>
+
+                           <ion-select-option value=" régime militaire">régime militaire</ion-select-option>
+
+                           <ion-select-option value=" Non précisé"> nonprécisé</ion-select-option>
+
+                           <ion-select-option value=" autre ">autre </ion-select-option>
+
+
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                      </ion-col>
+                           
+
+
+                          
+                        <ion-col>
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Statut " interface="popover" placeholder="Statut">
+                           <ion-select-option value=" encore suivi"> encore suivi</ion-select-option>
+                           <ion-select-option value="perdu de vue">perdu de vue</ion-select-option>
+                           <ion-select-option value="décédé">décédé</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                      </ion-col>
+                          </ion-row>
+                           </div>
+
+                           <div>
+
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Circonstances de découverte" interface="popover" placeholder="Circonstances de découverte">
+                           <ion-select-option value=" Symptomatique"> Symptomatique</ion-select-option>
+                           <ion-select-option value=", enquête familiale">, enquête familiale</ion-select-option>
+                           <ion-select-option value="DPN">DPN</ion-select-option>
+                           <ion-select-option value="fortuite">fortuite</ion-select-option>
+
+                           <ion-select-option value=" dépistage"> dépistage</ion-select-option>
+
+                           <ion-select-option value="systématique">systématique</ion-select-option>
+                           <ion-select-option value="NP">NP</ion-select-option>
+
+
+
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                           </div>
+
+
+                           <ion-row>
+                          
+                           <ion-col>
+
+                            <ion-list>
+                       <ion-item>
+                           <ion-select aria-label=" Structure de suivi  " interface="popover" placeholder="Structure de suivi ">
+                           <ion-select-option value="structure de santé publique"> structure de santé publique</ion-select-option>
+                           <ion-select-option value="clinique privé">clinique privé</ion-select-option>
+                           <ion-select-option value="cabinet médical">cabinet médical</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                       </ion-list>
+                           </ion-col>
+                          
+
+                           <ion-col>
+                            <div class="form-group">
+                              <input
+                                class="form-control"
+                                id="Nom de la structure"
+                                required
+                                placeholder="Nom de la structure "
+                         
+                                name="name"
+                              />
+                              </div>
+                            </ion-col>
+                            </ion-row>
+
+                            <ion-row>
+                                  <ion-col>
+                                <div class="form-group">
+                                  
+                                  <input 
+                                    class="form-control"
+                                    id="médecin"
+                                    required
+                                    placeholder="médecin"
+                                    name="name"
+                                  />
+    
+                                    </div> 
+                                  </ion-col>
+
+                                  <ion-col>
+                                    <div>
+
+                                      <ion-list>
+                                 <ion-item>
+                                     <ion-select aria-label=" Spécialité  " interface="popover" placeholder="Spécialité ">
+                                     <ion-select-option value=" pédiatrie">  pédiatrie</ion-select-option>
+                                     <ion-select-option value="néonatologie">néonatologie</ion-select-option>
+                                     <ion-select-option value="neurologie">neurologie</ion-select-option>
+                                     <ion-select-option value="ophtalmologie">ophtalmologie</ion-select-option>
+                                     <ion-select-option value="orthopédie">orthopédie</ion-select-option>
+
+                                     <ion-select-option value="cardiologie">cardiologie</ion-select-option>
+                                     <ion-select-option value="génétique">génétique</ion-select-option>
+                                     <ion-select-option value=" gynécologie">gynécologie</ion-select-option>
+
+                                     <ion-select-option value="pédopsychiatre">pédopsychiatre</ion-select-option>
+                                     <ion-select-option value="autre">autre</ion-select-option>
+
+                                     </ion-select>
+                                 </ion-item>
+                                 </ion-list>
+                                     </div>
+                                    </ion-col>
+                                     </ion-row>
+                        </div>
+                        </div>
+                        </ion-item>
+                        </ion-accordion>
+                        </ion-accordion-group>
+              </ion-list>
+              </div>
+            </ion-row>
+
+            <ion-row *ngSwitchCase="'more'">
+              <div>
+                <ion-list>
+                    <ion-accordion-group>
+                      <ion-accordion value="start">
+                        <ion-item slot="header">
+                            <ion-label>Historique familiale</ion-label>
+                          <ion-note slot="end" id="datetimeValue"></ion-note>
+                        </ion-item>
+                        <ion-item slot="content">
+                        
+                        <div>
+            
+                          <div class="form-group">
+                            <label for="description">Nom et Prénom </label>
+                            <input
+                              class="form-control"
+                              id="description"
+                              required
+                              [(ngModel)]="fiche.numDoc"
+                              name="name"
+                            />
+                          
+                          
+                            <label for="tel">Adress</label>
+                            <input
+                              class="form-control"
+                              id="adress"
+                              [(ngModel)]="fiche.nom"       
+                              required
+                              type="text"
+                              name="adress"
+                            />
+                          
+                          
+                            <label for="mail">Email</label>
+                            <input
+                              class="form-control"
+                              id="mail"
+                              [(ngModel)]="fiche.dateDiag"
+                              required
+                              type="email"
+                              name="mail"
+                            />
+                          
+                          
+                            <label for="mail">Tél</label>
+                            <input
+                              class="form-control"
+                              id="tel"
+                              required
+                              [(ngModel)]="fiche.dateEnrg"
+                              type="tel"
+                              name="tel"
+                            />
+                          
+                          </div>
+                          </div>
+                          </ion-item>
+                          </ion-accordion>
+                          </ion-accordion-group>
+                </ion-list>
+                </div>
+             </ion-row>
+
+            
+
+
+              
+  
+              <ion-row *ngSwitchCase="'more'">
+                <div>
+                  <ion-list>
+                      <ion-accordion-group>
+                        <ion-accordion value="start">
+                          <ion-item slot="header">
+                              <ion-label>diagnostic</ion-label>
+                            <ion-note slot="end" id="datetimeValue"></ion-note>
+                          </ion-item>
+                          <ion-item slot="content">
+                          
+                          <div>
+              
+                            <div class="form-group">
+                              <label for="description">Nom et Prénom </label>
+                              <input
+                                class="form-control"
+                                id="description"
+                                required
+                                [(ngModel)]="fiche.numDoc"
+                                name="name"
+                              />
+                            
+                            
+                              <label for="tel">Adress</label>
+                              <input
+                                class="form-control"
+                                id="adress"
+                                [(ngModel)]="fiche.nom"       
+                                required
+                                type="text"
+                                name="adress"
+                              />
+                            
+                            
+                              <label for="mail">Email</label>
+                              <input
+                                class="form-control"
+                                id="mail"
+                                [(ngModel)]="fiche.dateDiag"
+                                required
+                                type="email"
+                                name="mail"
+                              />
+                            
+                            
+                              <label for="mail">Tél</label>
+                              <input
+                                class="form-control"
+                                id="tel"
+                                required
+                                [(ngModel)]="fiche.dateEnrg"
+                                type="tel"
+                                name="tel"
+                              />
+                            
+                            </div>
+                            </div>
+                            </ion-item>
+                            </ion-accordion>
+                            </ion-accordion-group>
+                  </ion-list>
+                  </div>
+                  </ion-row>
+
+
+                  
+        
+                    <ion-row *ngSwitchCase="'more'">
+                      <div>
+                        <ion-list>
+                            <ion-accordion-group>
+                              <ion-accordion value="start">
+                                <ion-item slot="header">
+                                    <ion-label>Autre Soins</ion-label>
+                                  <ion-note slot="end" id="datetimeValue"></ion-note>
+                                </ion-item>
+                                <ion-item slot="content">
+                                
+                                <div>
+                    
+                                  <div class="form-group">
+                                    <label for="description">Nom et Prénom </label>
+                                    <input
+                                      class="form-control"
+                                      id="description"
+                                      required
+                                      [(ngModel)]="fiche.numDoc"
+                                      name="name"
+                                    />
+                                  
+                                  
+                                    <label for="tel">Adress</label>
+                                    <input
+                                      class="form-control"
+                                      id="adress"
+                                      [(ngModel)]="fiche.nom"       
+                                      required
+                                      type="text"
+                                      name="adress"
+                                    />
+                                  
+                                  
+                                    <label for="mail">Email</label>
+                                    <input
+                                      class="form-control"
+                                      id="mail"
+                                      [(ngModel)]="fiche.dateDiag"
+                                      required
+                                      type="email"
+                                      name="mail"
+                                    />
+                                  
+                                  
+                                    <label for="mail">Tél</label>
+                                    <input
+                                      class="form-control"
+                                      id="tel"
+                                      required
+                                      [(ngModel)]="fiche.dateEnrg"
+                                      type="tel"
+                                      name="tel"
+                                    />
+                                  
+                                  </div>
+                                  </div>
+                                  </ion-item>
+                                  </ion-accordion>
+                                  </ion-accordion-group>
+                        </ion-list>
+                        </div>
+                        </ion-row>
+
+
+                          
+             
+          <ion-button mode="ios" color="blue"  (click)="saveFiche()" class="btn btn-success">Submit</ion-button>
+        
+        
+                      -->           
+
+

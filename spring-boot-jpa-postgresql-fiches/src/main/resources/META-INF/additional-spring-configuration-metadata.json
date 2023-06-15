@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "spring.fiche.datasource.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.fiche.datasource.url'"
+  },
+  {
+    "name": "spring.fiche.datasource.username",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.fiche.datasource.username'"
+  },
+  {
+    "name": "spring.fiche.datasource.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.fiche.datasource.password'"
+  }
+]}

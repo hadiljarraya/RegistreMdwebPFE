@@ -1,0 +1,42 @@
+<div class="container">
+  <ion-row>
+    <ion-col size="11" class="title">
+      <h3>Ajouter service</h3>
+    </ion-col>
+    <ion-col>
+      <ion-icon class="return" color="primary" (click)="modalDismiss()"
+      name="arrow-forward-circle-outline"></ion-icon>
+    </ion-col>
+  </ion-row> 
+  <div class="submit-form">
+
+    <div *ngIf="!submitted">
+
+      
+      <div class="form-group">
+        <label for="nom">Nom </label>
+        <input
+          class="form-control"
+          id="nom"
+          required
+          [(ngModel)]="service.name"
+          name="nom"
+        />
+      </div>
+      
+     
+      <ion-button mode="ios" color="blue" (click)="saveService()" class="btn btn-success">Submit</ion-button>
+    </div>
+
+
+
+
+    <div *ngIf="submitted">
+      <h4>Département ajouté avec succés!</h4>
+      <ion-button mode="ios" class="btn btn-success" (click)="newService()">Add</ion-button>
+    </div>
+
+
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.edit-form {
+  max-width: 400px;
+  margin: auto;
+}
+.submit-form {
+  max-width: 400px;
+  margin: auto;
+}
+.container{
+  padding: 7%;
+}
+.title{
+  text-align: center;
+  color: #495057;
+}
+.container title{
+  color: blue;
+}
+.submit{
+  width: 100%;
+}

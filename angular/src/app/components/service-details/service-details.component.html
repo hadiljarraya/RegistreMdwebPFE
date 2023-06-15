@@ -1,0 +1,30 @@
+<div class="editContainer">
+  <div class="edit-form">
+    <div class="container title">
+      <h3>Modifier les informations</h3>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="nom">Nom</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nom"
+          [(ngModel)]="service.nom"
+          name="nom"
+        />
+      </div>
+      
+    </form>
+
+    <div class="d-block">
+      <ion-button mode="ios" color="secondary" class="submit" (click)="updateService()">Update</ion-button>
+          </div>
+    
+   
+    
+
+    
+    
+  </div>
+</div>

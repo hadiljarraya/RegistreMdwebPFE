@@ -1,0 +1,194 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+
+  padding: 0;
+  box-sizing: border-box;
+ 
+}
+
+
+.navbar-expand .navbar-nav .nav-link {
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  color: white;
+}
+ion-menu::part(backdrop) {
+  background-color: rgba(255, 0, 255, 0.5);
+}
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+
+  box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
+}
+body{
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+::selection{
+  color:blue;
+  background:white;
+} 
+
+
+
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+
+.btns{
+  justify-content: flex-end;
+  display: flex;
+}
+.addbtn{
+  color: #fff;
+}
+.tableHeader{
+  padding: 10px;
+}
+.header-container{
+  align-self: center;
+  
+}
+  
+.header{
+  font-size: 22px;
+  margin-left: 20px;
+
+}
+.cardlist{
+  margin: 7%;
+}
+.rowbtns{
+  display: flex;
+  justify-content: flex-end;
+
+}
+.rows{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rowsbtns{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.actions{
+  display: flex;
+  justify-content: center;
+}
+.rowheader{
+  width: -webkit-fill-available;
+}
+.sidebar{
+  position:fixed;
+  top:0.4px;
+  left:0;
+  height:100%;
+  width: 200px;
+  background:#3c2b97;
+  padding:6px 14px;
+  z-index:99;
+  transition:all 0.5s ease;
+}
+.sidebar.active{
+  width:240px;
+}
+.sidebar .logo_content .logo{
+  color:#3c2b97;
+  display: flex;
+  height:50px;
+  width:100%;
+  align-items: center;
+ 
+  padding-left: 220px;
+}
+.sidebar.active .logo_content .logo{
+  opacity:1;
+  pointer-events: none;
+  
+}
+.logo_content .logo .logo_name{
+  font-size: 20px;
+  font-weight: 400;
+  left: 50%;
+}
+.sidebar #btn{
+  position:absolute;
+  color:#3c2b97;
+  top:6px;
+  left:50%;
+  font-size: 22px;
+  height:50px;
+  width:50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+.sidebar.active #btn{
+  left:90%;
+}
+.sidebar ul{
+  margin-top:20px;
+}
+.sidebar ul li{
+  position:relative;
+  height:50px;
+  width:100%;
+  margin:5px 0;
+  list-style: none;
+  line-height: 50px;
+}
+
+
+
+.sidebar ul li a{
+  color:white;
+  display:flex;
+  align-items:center;
+  text-decoration: none;
+  border-radius: 12px;
+  
+ 
+}
+
+.sidebar ul li a:hover{
+  color:white;
+  background:white;
+}
+.sidebar ul li i{
+  font-size: 18px;
+  font-weight: 400;
+  height:50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+  background-color:#3c2b97;
+}
+.sidebar .links_name{
+  font-size: 18px;
+  font-weight: 400;
+  
+  background-color: #3c2b97;
+  color: white;
+}
+
+
+
+.sidebar.medkit{
+  color: #fff;
+}
+
+ .btns.add-circle-outline{
+  color: #3c2b97;
+ }

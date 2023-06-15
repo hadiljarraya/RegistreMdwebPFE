@@ -1,0 +1,63 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Menu Content</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">This is the menu content.</ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+  </div>
+  
+  <nav class="navbar navbar-expand bg-color">
+    <!--<img src="../assets/logocharle.png"/>-->
+   <a href="/register" routerLink="register" class="navbar-brand" style="color: white;">Registre des Aminoacidopathies</a>
+
+    <ul class="navbar-nav ml-auto" routerLinkActive="active">
+    
+      <li class="nav-item" *ngIf="showDoctorParBoard">
+        <a href="/par" class="nav-link" routerLink="par">Participant Doctor  Dashboard</a>
+      </li>
+      <li class="nav-item" *ngIf="showDoctorRefBoard">
+        <a href="/ref" class="nav-link" routerLink="ref">Referant Doctor Dashboard</a>
+      </li>
+      <li class="nav-item" *ngIf="showUserBoard">
+        <a href="/user" class="nav-link" routerLink="user">User Dashboard</a>
+      </li>
+
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a href="/profile" class="nav-link" routerLink="profile">Profile</a>
+      </li>
+
+
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a href="/login" class="nav-link" routerLink="login">Login</a>
+        </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        
+        <a href class="nav-link" (click)="logout()">Logout</a>
+       
+      </li>
+      <li> <i class="fa fa-sign-in" style="font-size:24px"></i></li>
+    </ul>
+  </nav>
+  <div class="bg page-header align-items-start min-vh-100" >
+  <div class="container">
+    <ion-router-outlet></ion-router-outlet>
+    
+  </div>
+</div>
+</ion-app>

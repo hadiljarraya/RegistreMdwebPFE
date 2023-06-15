@@ -1,0 +1,35 @@
+.submit-form {
+   
+    margin: 5%;
+  }
+  .container{
+    padding-top: 7%;
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  .title{
+    text-align: center;
+    color: #3880ff;
+  }
+  
+  .return{
+    width: 24px;
+    height: 24px;
+  }
+  
+  
+  .btn-success {
+      color: #fff;
+      background-color: #3880ff;
+      border-color: none;
+    
+    flex-flow: row nowrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+   
+    z-index: 1;
+
+     
+  }
+  
